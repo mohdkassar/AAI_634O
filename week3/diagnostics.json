@@ -1,0 +1,44 @@
+[
+    {
+        "diagnostic_id": "D001",
+        "patient_id": "P001",
+        "test": "Blood Test",
+        "result": "Normal"
+    },
+    {
+        "diagnostic_id": "D002",
+        "patient_id": "P002",
+        "test": "X-Ray",
+        "result": "Fracture"
+    },
+    {
+        "diagnostic_id": "D003",
+        "patient_id": "P003",
+        "test": "MRI",
+        "result": "Normal"
+    },
+    {
+        "diagnostic_id": "D004",
+        "patient_id": "P008",
+        "test": "MRI",
+        "result": "Normal"
+    },
+    {
+        "diagnostic_id": "D005",
+        "patient_id": "P016",
+        "test": "Blood Test",
+        "result": "Normal"
+    },
+    {
+        "diagnostic_id": "D006",
+        "patient_id": "P018",
+        "test": "Blood Test",
+        "result": "Normal"
+    },
+    {
+        "diagnostic_id": "D007",
+        "patient_id": "P026",
+        "test": "Blood Test",
+        "result": "Normal"
+    }
+]
