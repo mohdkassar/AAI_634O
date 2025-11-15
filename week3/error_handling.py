@@ -8,6 +8,7 @@ def extract_sales_data(csv_file):
         return sales_df
     except FileNotFoundError:
         print(f"Error: {csv_file} not found.")
+        return None
 
 def transform_sales_data(df):
     df['total_revenue'] = df['quantity'] * df['price']
@@ -45,6 +46,10 @@ def run_pipeline(csv_file='./sales.csv',
     db = connect_to_mongodb(connection_string, db_name)
 
     df = extract_sales_data(csv_file)
+
+    if df is None:
+        print('Failed to load sales data. Skipping pipeline')
+        return None
     
     df = transform_sales_data(df)
     
