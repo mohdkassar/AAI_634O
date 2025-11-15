@@ -4,12 +4,14 @@ from pymongo import MongoClient
 def extract_sales_data(csv_file):
     try:
         sales_df = pd.read_csv(csv_file)
+        print(f"Successfully read {len(sales_df)} sales records.")
         return sales_df
     except FileNotFoundError:
         print(f"Error: {csv_file} not found.")
 
 def transform_sales_data(df):
     df['total_revenue'] = df['quantity'] * df['price']
+    print(f"Successfully transformed {len(df)} sales records.")
     return df
 
 def load_data(db, df):
@@ -22,7 +24,6 @@ def load_data(db, df):
         
         result = sales_collection.insert_many(sales_records)
         print(f"Inserted {len(result.inserted_ids)} sales records into MongoDB")
-        print("\n")
     except Exception as e:
         print(f"Error loading patient data: {e}")
         return False
@@ -32,7 +33,6 @@ def connect_to_mongodb(connection_string, db_name):
         client = MongoClient(connection_string)
         db = client[db_name]
         print(f"Successfully connected to MongoDB database: {db_name}")
-        print("\n")
         return db
     except Exception as e:
         print(f"Error connecting to MongoDB: {e}")
@@ -53,6 +53,6 @@ def run_pipeline(csv_file='./sales.csv',
 if __name__ == "__main__":
     run_pipeline(
         csv_file='./sales.csv',
-        connection_string='mongodb://localhost:27016/',
+        connection_string='mongodb://localhost:27017/',
         db_name='sales_db'
     )
