@@ -8,7 +8,7 @@ import time
 
 def extract_sales_data(**context):
     try:
-        csv_url = 'https://raw.githubusercontent.com/mohdkassar/AAI_634O/refs/heads/main/project/sales_v2.csv'
+        csv_url = 'https://raw.githubusercontent.com/mohdkassar/AAI_634O/refs/heads/main/project/sales.csv'
         sales_df = pd.read_csv(csv_url)
         print(f"Successfully read {len(sales_df)} sales records.")
         # Push data to XCom for next task
